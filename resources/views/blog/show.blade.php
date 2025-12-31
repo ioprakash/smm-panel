@@ -115,15 +115,16 @@
                        <li><a href="{{ route('register') }}" class="hover:text-indigo-600">Sign Up</a></li>
                    </ul>
                </div>
-               <div>
-                   <h4 class="font-bold text-gray-900 mb-4">Support</h4>
-                   <ul class="space-y-2 text-sm text-gray-600">
-                       <li><a href="#" class="hover:text-indigo-600">FAQ</a></li>
-                       <li><a href="#" class="hover:text-indigo-600">API Docs</a></li>
-                       <li><a href="#" class="hover:text-indigo-600">Contact Us</a></li>
-                       <li><a href="#" class="hover:text-indigo-600">Terms of Service</a></li>
-                   </ul>
-               </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Support</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-indigo-600">FAQ</a></li>
+                        <li><a href="#" class="hover:text-indigo-600">API Docs</a></li>
+                        <li><a href="#" class="hover:text-indigo-600">Contact Us</a></li>
+                        <li><a href="{{ route('page.terms') }}" class="hover:text-indigo-600">Terms of Service</a></li>
+                        <li><a href="{{ route('page.privacy') }}" class="hover:text-indigo-600">Privacy Policy</a></li>
+                    </ul>
+                </div>
            </div>
            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                <p class="text-gray-400 text-sm">&copy; {{ date('Y') }} SMM Nepal. All rights reserved.</p>

@@ -499,8 +499,8 @@
                 <div>
                     <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Legal & Help</h4>
                     <ul class="space-y-4 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-indigo-400 transition">Terms of Service</a></li>
-                        <li><a href="#" class="hover:text-indigo-400 transition">Privacy Policy</a></li>
+                        <li><a href="{{ route('page.terms') }}" class="hover:text-indigo-400 transition">Terms of Service</a></li>
+                        <li><a href="{{ route('page.privacy') }}" class="hover:text-indigo-400 transition">Privacy Policy</a></li>
                         <li><a href="#" class="hover:text-indigo-400 transition">Refund Policy</a></li>
                         <li><a href="#" class="hover:text-indigo-400 transition">API Documentation</a></li>
                     </ul>

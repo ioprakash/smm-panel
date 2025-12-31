@@ -21,6 +21,8 @@ Route::get('/', function () {
 });
 
 Route::get('/blog/{slug}', [App\Http\Controllers\BlogController::class, 'show'])->name('blog.show');
+Route::get('/terms', [App\Http\Controllers\PageController::class, 'terms'])->name('page.terms');
+Route::get('/privacy', [App\Http\Controllers\PageController::class, 'privacy'])->name('page.privacy');
 
 Route::get('/services', [\App\Http\Controllers\Guest\ServiceController::class, 'index'])->name('guest.services');
 
