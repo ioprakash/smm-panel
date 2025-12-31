@@ -108,34 +108,36 @@
 
                 <!-- Right Content (Login Form / Image) -->
                 <div class="relative">
-                    <!-- 3D Rocket Image -->
-                     <img src="{{ asset('hero-rocket.png') }}" class="absolute -top-20 -right-20 w-[120%] h-auto z-0 opacity-20 lg:opacity-100 pointer-events-none animate-blob" alt="Social Media Growth">
+                    <div class="relative max-w-md mx-auto lg:ml-auto">
+                        <!-- 3D Rocket Image -->
+                        <img src="{{ asset('hero-rocket.png') }}" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[150%] max-w-none h-auto z-0 opacity-20 lg:opacity-100 pointer-events-none animate-blob" alt="Social Media Growth">
 
-                    <!-- Login Card -->
-                    @guest
-                    <div class="relative z-10 glass-panel p-8 rounded-3xl shadow-2xl max-w-md mx-auto lg:ml-auto border-t border-white">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Member Login</h3>
-                        <p class="text-gray-500 mb-6 text-sm">Access your dashboard to place orders.</p>
-                        
-                        <form method="POST" action="{{ route('login') }}" class="space-y-4">
-                            @csrf
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                                <input type="email" name="email" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition bg-white/50" placeholder="you@example.com" required>
-                            </div>
-                            <div>
-                                <div class="flex justify-between items-center mb-1">
-                                    <label class="block text-sm font-medium text-gray-700">Password</label>
-                                    <a href="#" class="text-xs text-indigo-600 hover:text-indigo-800 font-medium">Forgot?</a>
+                        <!-- Login Card -->
+                        @guest
+                        <div class="relative z-10 glass-panel p-8 rounded-3xl shadow-2xl border-t border-white">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Member Login</h3>
+                            <p class="text-gray-500 mb-6 text-sm">Access your dashboard to place orders.</p>
+                            
+                            <form method="POST" action="{{ route('login') }}" class="space-y-4">
+                                @csrf
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                                    <input type="email" name="email" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition bg-white/50" placeholder="you@example.com" required>
                                 </div>
-                                <input type="password" name="password" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition bg-white/50" placeholder="••••••••" required>
+                                <div>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <label class="block text-sm font-medium text-gray-700">Password</label>
+                                        <a href="#" class="text-xs text-indigo-600 hover:text-indigo-800 font-medium">Forgot?</a>
+                                    </div>
+                                    <input type="password" name="password" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition bg-white/50" placeholder="••••••••" required>
+                                </div>
+                                <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200 transform active:scale-95">
+                                    Sign In
+                                </button>
+                            </form>
+                            <div class="mt-6 text-center text-sm text-gray-500">
+                                Don't have an account? <a href="{{ route('register') }}" class="text-indigo-600 font-bold hover:underline">Sign up</a>
                             </div>
-                            <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200 transform active:scale-95">
-                                Sign In
-                            </button>
-                        </form>
-                        <div class="mt-6 text-center text-sm text-gray-500">
-                            Don't have an account? <a href="{{ route('register') }}" class="text-indigo-600 font-bold hover:underline">Sign up</a>
                         </div>
                     </div>
                     @else
@@ -429,54 +431,88 @@
         </div>
     </section>
 
-    <!-- CTA -->
-    <div class="py-20 relative overflow-hidden bg-gray-900">
-        <div class="absolute inset-0 bg-indigo-600 opacity-20 bg-[radial-gradient(#4f46e5_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div class="max-w-4xl mx-auto text-center px-4 relative z-10">
-            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Start Growing Today</h2>
-            <p class="text-gray-300 text-xl mb-10 max-w-2xl mx-auto">Join thousands of influencers and businesses using SMM Nepal to boost their social presence.</p>
-            <div class="flex justify-center gap-4">
-                <a href="{{ route('register') }}" class="bg-white text-gray-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-lg">Create Free Account</a>
+    <!-- CTA Section -->
+    <div class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-gray-900"></div>
+        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 to-purple-200 mb-6 drop-shadow-sm">
+                Ready to Go Viral?
+            </h2>
+            <p class="text-indigo-100 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+                Join the fastest growing SMM network in Nepal. Instant delivery, wholesale prices, and 24/7 support.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="{{ route('register') }}" class="px-8 py-4 bg-white text-indigo-900 rounded-full font-bold text-lg hover:bg-indigo-50 transition transform hover:-translate-y-1 shadow-xl shadow-indigo-900/50">
+                    Get Started Now
+                </a>
+                <a href="#services" class="px-8 py-4 bg-transparent border-2 border-indigo-400 text-white rounded-full font-bold text-lg hover:bg-indigo-900/50 transition backdrop-blur-sm">
+                    View Pricing
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200 pt-16 pb-8">
+    <!-- Modern Dark Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 pt-20 pb-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-                <div class="col-span-2">
-                    <div class="flex items-center gap-2 mb-4">
-                         <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold">S</div>
-                        <span class="text-xl font-bold text-gray-900">SMM NEPAL</span>
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <!-- Brand -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                         <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-indigo-900/20">S</div>
+                        <span class="text-2xl font-bold text-white">SMM NEPAL</span>
                     </div>
-                    <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
-                        The #1 Cheapest SMM Panel in Nepal. We provide high-quality social media marketing services for Instagram, Facebook, TikTok, YouTube, and more.
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-6">
+                        The trusted partner for influencers, brands, and agencies. We provide the cheapest and most reliable social media services in Nepal & India.
                     </p>
+                    <div class="flex gap-4">
+                        <!-- Facebook -->
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-indigo-600 hover:text-white transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <!-- Twitter -->
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-400 hover:text-white transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-pink-600 hover:text-white transition">
+                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.072 3.252.148 4.771 1.691 4.919 4.919.06 1.265.072 1.645.072 4.849 0 3.205-.012 3.584-.072 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.06-1.644.072-4.85.072-3.205 0-3.584-.012-4.85-.072-3.225-.148-4.771-1.664-4.919-4.919-.06-1.265-.072-1.644-.072-4.849 0-3.204.012-3.584.072-4.849.149-3.225 1.664-4.771 4.919-4.919 1.266-.06 1.645-.072 4.85-.072zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                    </div>
                 </div>
+
+                <!-- Navigation -->
                 <div>
-                    <h4 class="font-bold text-gray-900 mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li><a href="#" class="hover:text-indigo-600">Home</a></li>
-                        <li><a href="#services" class="hover:text-indigo-600">Services</a></li>
-                        <li><a href="{{ route('login') }}" class="hover:text-indigo-600">Login</a></li>
-                        <li><a href="{{ route('register') }}" class="hover:text-indigo-600">Sign Up</a></li>
+                    <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Company</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-indigo-400 transition">About Us</a></li>
+                        <li><a href="#services" class="hover:text-indigo-400 transition">Our Services</a></li>
+                        <li><a href="#blog" class="hover:text-indigo-400 transition">Blog / News</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition">Contact Support</a></li>
                     </ul>
                 </div>
+
+                <!-- Legal -->
                 <div>
-                    <h4 class="font-bold text-gray-900 mb-4">Support</h4>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li><a href="#" class="hover:text-indigo-600">FAQ</a></li>
-                        <li><a href="#" class="hover:text-indigo-600">API Docs</a></li>
-                        <li><a href="#" class="hover:text-indigo-600">Contact Us</a></li>
-                        <li><a href="#" class="hover:text-indigo-600">Terms of Service</a></li>
+                    <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Legal & Help</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-indigo-400 transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition">Refund Policy</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition">API Documentation</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-400 text-sm">&copy; {{ date('Y') }} SMM Nepal. All rights reserved.</p>
-                <div class="flex gap-4">
-                     <!-- Social Icons could go here -->
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">&copy; {{ date('Y') }} SMM Nepal. All rights reserved.</p>
+                <div class="flex items-center gap-2 text-sm text-gray-500">
+                    <span>Made with</span>
+                    <svg class="w-4 h-4 text-red-500 fill-current animate-pulse" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    <span>in Kathmandu</span>
                 </div>
             </div>
         </div>
