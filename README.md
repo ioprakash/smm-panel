@@ -3,16 +3,23 @@
 ## 1. Installation
 
 1.  **Environment Setup**:
-    *   Ensure PHP 8.2+, MySQL, and Redis are running.
+    *   Ensure PHP 8.2+, MySQL, nodejs (with npm) and Redis are running.
     *   Copy `.env.example` to `.env` and configure `DB_*` settings.
     *   Run `php artisan key:generate`.
+    *   Run `composer install`.
+    *   Run `npm install`.
 
 2.  **Database**:
     *   Run `php artisan migrate --seed` to setup tables and demo data.
     *   **Default Admin**: `admin@smmpanel.com` / `password`
     *   **Default User**: `user@smmpanel.com` / `password`
 
-3.  **Cron Job**:
+3.  **Local Development**:
+    *   Start the backend server: `php artisan serve`
+    *   Start the frontend asset compiler: `npm run dev`
+    *   Visit `http://localhost:8000` in your browser.
+
+4.  **Cron Job (Production)**:
     *   Set up a system cron to run the schedule every minute:
         ```bash
         * * * * * cd /path-to-project && php artisan schedule:run >> /dev/null 2>&1
@@ -21,7 +28,11 @@
 
 ## 2. Core Features
 
-### Wallet & Payments (~Nepal Focused~)
+### Blog System (New)
+*   **Public**: SEO-friendly blog posts at `/blog/{slug}`.
+*   **Admin**: Full CRUD management at `/admin/blogs` with Draft/Publish status and image uploads.
+
+### Wallet & Payments (Nepal Focused)
 *   **Deposit**: Users can deposit via **eSewa** (Simulated in this version) or **Khalti**.
 *   **Flow**:
     1.  User enters amount.
@@ -43,6 +54,8 @@
 *   **Auth**: Users generate an API Key in their profile (Auto-generated in this seed).
 
 ## 3. Directory Structure
+*   `app/Http/Controllers/Admin/BlogController.php`: Admin logic for blogs.
+*   `app/Http/Controllers/BlogController.php`: Public logic for blogs.
 *   `app/Services/Smm`: Core logic for connecting to upstream providers.
 *   `app/Services/Payment`: Payment Gateway implementations (EsewaGateway).
 *   `app/Console/Commands/Cron`: Background tasks.
@@ -58,7 +71,3 @@ php artisan test
 *   **Redis**: Switch `QUEUE_CONNECTION` to `redis` for better performance.
 *   **Real Gateways**: Update `EsewaGateway.php` with production URLs and Merchant Credentials.
 *   **UI Polish**: Customize `dashboard` views further with Tailwind.
-# smm-panel
-# smm-panel
-# smm-panel
-# smm-panel

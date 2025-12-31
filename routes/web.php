@@ -20,6 +20,8 @@ Route::get('/', function () {
     return view('welcome', compact('categories', 'latest_posts'));
 });
 
+Route::get('/blog/{slug}', [App\Http\Controllers\BlogController::class, 'show'])->name('blog.show');
+
 Route::get('/services', [\App\Http\Controllers\Guest\ServiceController::class, 'index'])->name('guest.services');
 
 Route::middleware(['auth', 'verified'])->group(function () {

@@ -231,17 +231,9 @@
         </div>
     </section>
 
-    <!-- Services Table (Compact) -->
-    <div id="services" class="py-24 bg-gray-50 border-t border-gray-200">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <span class="text-indigo-600 font-bold tracking-wider uppercase text-sm">Pricing</span>
-                <h2 class="text-3xl font-bold text-gray-900 mt-2">Unbeatable Service Rates</h2>
-            </div>
-            
     <!-- Services Table (Expandable) -->
     <div id="services" class="py-24 bg-gray-50 border-t border-gray-200" x-data="{ expanded: false }">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <span class="text-indigo-600 font-bold tracking-wider uppercase text-sm">Pricing</span>
                 <h2 class="text-3xl font-bold text-gray-900 mt-2">Unbeatable Service Rates</h2>
@@ -318,7 +310,7 @@
                         <div class="text-xs font-bold text-indigo-600 mb-2 uppercase tracking-wide">{{ $post->created_at->format('M d, Y') }}</div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition">{{ $post->title }}</h3>
                         <p class="text-gray-600 text-sm line-clamp-3 mb-4">{{ $post->excerpt }}</p>
-                        <a href="#" class="inline-flex items-center text-sm font-bold text-indigo-600 hover:text-indigo-800">
+                        <a href="{{ route('blog.show', $post->slug) }}" class="inline-flex items-center text-sm font-bold text-indigo-600 hover:text-indigo-800">
                             Read Article 
                             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </a>
