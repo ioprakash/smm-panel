@@ -8,13 +8,16 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Category;
 
+use App\Models\BlogPost;
+
 Route::get('/', function () {
     $categories = Category::with(['services' => function($q) {
         $q->where('is_active', true)->limit(5); // Limit for preview
     }])->where('is_active', true)->orderBy('sort_order')->get();
     
-    return view('welcome', compact('categories'));
-    return view('welcome', compact('categories'));
+    $latest_posts = BlogPost::where('is_published', true)->latest()->get();
+    
+    return view('welcome', compact('categories', 'latest_posts'));
 });
 
 Route::get('/services', [\App\Http\Controllers\Guest\ServiceController::class, 'index'])->name('guest.services');
@@ -73,6 +76,9 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('ad
 
     Route::get('/settings', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('settings.index');
     Route::post('/settings', [\App\Http\Controllers\Admin\SettingController::class, 'store'])->name('settings.store');
+
+    // Blogs
+    Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class);
 });
 
 require __DIR__.'/auth.php';

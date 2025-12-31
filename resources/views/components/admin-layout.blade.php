@@ -38,6 +38,7 @@
             <x-nav-link href="{{ route('admin.orders.index') }}" :active="request()->routeIs('admin.orders.index')" icon="shopping-bag" class="!text-slate-300 hover:!bg-slate-800 hover:!text-white">Orders</x-nav-link>
             <x-nav-link href="{{ route('admin.services.index') }}" :active="request()->routeIs('admin.services.index')" icon="layers" class="!text-slate-300 hover:!bg-slate-800 hover:!text-white">Services</x-nav-link>
             <x-nav-link href="{{ route('admin.providers.index') }}" :active="request()->routeIs('admin.providers.index')" icon="server" class="!text-slate-300 hover:!bg-slate-800 hover:!text-white">Providers</x-nav-link>
+            <x-nav-link href="{{ route('admin.blogs.index') }}" :active="request()->routeIs('admin.blogs.*')" icon="book-open" class="!text-slate-300 hover:!bg-slate-800 hover:!text-white">Blog & News</x-nav-link>
 
             <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider px-3 mt-6 mb-2">Support</div>
             <x-nav-link href="{{ route('admin.tickets.index') }}" :active="request()->routeIs('admin.tickets.*')" icon="life-buoy" class="!text-slate-300 hover:!bg-slate-800 hover:!text-white">Tickets</x-nav-link>

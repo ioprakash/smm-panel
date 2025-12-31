@@ -291,6 +291,55 @@
         </div>
     </div>
 
+    <!-- Blog Section -->
+    @if(isset($latest_posts) && $latest_posts->count() > 0)
+    <section id="blog" class="py-20 bg-white" x-data="{ expanded: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-indigo-600 font-bold tracking-wider uppercase text-sm">Our Blog</span>
+                <h2 class="text-3xl font-bold text-gray-900 mt-2">Latest Updates & Tips</h2>
+                <p class="text-gray-500 mt-4 max-w-2xl mx-auto">Stay updated with the latest social media trends and platform updates.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                @foreach($latest_posts as $index => $post)
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition group" 
+                     x-show="expanded || {{ $index }} < 3">
+                    @if($post->image)
+                        <div class="h-48 overflow-hidden">
+                            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                        </div>
+                    @else
+                        <div class="h-48 bg-gray-100 flex items-center justify-center text-gray-400">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                        </div>
+                    @endif
+                    <div class="p-6">
+                        <div class="text-xs font-bold text-indigo-600 mb-2 uppercase tracking-wide">{{ $post->created_at->format('M d, Y') }}</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition">{{ $post->title }}</h3>
+                        <p class="text-gray-600 text-sm line-clamp-3 mb-4">{{ $post->excerpt }}</p>
+                        <a href="#" class="inline-flex items-center text-sm font-bold text-indigo-600 hover:text-indigo-800">
+                            Read Article 
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+            @if($latest_posts->count() > 3)
+            <div class="text-center">
+                <button @click="expanded = !expanded" class="inline-flex items-center justify-center px-6 py-3 border border-indigo-600 text-indigo-600 rounded-full font-bold hover:bg-indigo-50 transition">
+                    <span x-text="expanded ? 'Show Less Posts' : 'View All Posts'"></span>
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" x-show="!expanded"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" x-show="expanded"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+                </button>
+            </div>
+            @endif
+        </div>
+    </section>
+    @endif
+
     <!-- Features / SEO Content Block -->
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
