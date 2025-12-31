@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- SEO Meta Tags -->
+    <title>SMM Nepal - #1 Cheapest SMM Panel for Nepal & India | Buy Followers & Likes</title>
+    <meta name="description" content="Best & Cheapest SMM Panel in Nepal and India. Buy Instagram followers, TikTok views, YouTube watchtime, with instant delivery via eSewa, Khalti, IME Pay, UPI & Paytm. Wholesale SMM services for resellers.">
+    <meta name="keywords" content="smm panel nepal, smm panel india, cheapest smm panel india, buy instagram followers nepal, tiktok views nepal, youtube watchtime india, facebook likes, esewa smm panel, khalti payment, upi smm panel, paytm smm panel, social media marketing reseller">
+    <meta name="author" content="SMM Nepal">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url('/') }}">
+    <meta property="og:title" content="SMM Nepal - Best & Cheapest SMM Panel for Nepal and India">
+    <meta property="og:description" content="Boost your social media presence with the #1 SMM Panel in Nepal & India. Cheapest rates for Instagram, TikTok, YouTube & Facebook. Instant delivery with local payments.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .hero-pattern {
+            background-color: #ffffff;
+            background-image: radial-gradient(#6366f1 0.5px, transparent 0.5px), radial-gradient(#6366f1 0.5px, #ffffff 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.1;
+        }
+    </style>
+</head>
+<body class="antialiased bg-white text-gray-800 selection:bg-indigo-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-indigo-200">S</div>
+                    <a href="/" class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700">
+                        SMM NEPAL
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#services" class="text-gray-600 hover:text-indigo-600 font-medium transition">Services</a>
+                    <a href="#api" class="text-gray-600 hover:text-indigo-600 font-medium transition">API</a>
+                    <a href="#blog" class="text-gray-600 hover:text-indigo-600 font-medium transition">Blog</a>
+                    
+                    @auth
+                        <a href="{{ url('/dashboard') }}" class="btn-primary">Dashboard</a>
+                    @else
+                        <a href="{{ route('login') }}" class="font-bold text-gray-700 hover:text-indigo-600 transition">Login</a>
+                        <a href="{{ route('register') }}" class="bg-indigo-600 text-white px-6 py-2.5 rounded-full font-bold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200 transform hover:-translate-y-0.5">Register</a>
+                    @endauth
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
+        <div class="absolute inset-0 hero-pattern -z-10"></div>
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-indigo-50 via-purple-50 to-transparent -z-20 opacity-60"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Left Content -->
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-6">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> #1 Top Rated Panel
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight text-gray-900 mb-6 leading-tight">
+                        Viral Growth <br>
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">Made Simple.</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                        The cheapest SMM Panel in Nepal for Instagram, TikTok, & YouTube growth. Automated delivery 24/7.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="{{ route('register') }}" class="bg-indigo-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-indigo-700 transition shadow-xl shadow-indigo-200">
+                            Get Started Free
+                        </a>
+                        <a href="#services" class="bg-white text-gray-700 border border-gray-200 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition">
+                            View Services
+                        </a>
+                    </div>
+
+                    <div class="mt-12 flex items-center justify-center lg:justify-start gap-8 opacity-70 grayscale hover:grayscale-0 transition duration-500">
+                       <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" class="h-8">
+                       <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" class="h-6">
+                       <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" class="h-8">
+                       <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" class="h-8">
+                    </div>
+                </div>
+
+                <!-- Right Content (Login Form / Image) -->
+                <div class="relative">
+                    <!-- 3D Rocket Image -->
+                     <img src="{{ asset('hero-rocket.png') }}" class="absolute -top-20 -right-20 w-[120%] h-auto z-0 opacity-20 lg:opacity-100 pointer-events-none animate-blob" alt="Social Media Growth">
+
+                    <!-- Login Card -->
+                    @guest
+                    <div class="relative z-10 glass-panel p-8 rounded-3xl shadow-2xl max-w-md mx-auto lg:ml-auto border-t border-white">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Member Login</h3>
+                        <p class="text-gray-500 mb-6 text-sm">Access your dashboard to place orders.</p>
+                        
+                        <form method="POST" action="{{ route('login') }}" class="space-y-4">
+                            @csrf
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                                <input type="email" name="email" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition bg-white/50" placeholder="you@example.com" required>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <label class="block text-sm font-medium text-gray-700">Password</label>
+                                    <a href="#" class="text-xs text-indigo-600 hover:text-indigo-800 font-medium">Forgot?</a>
+                                </div>
+                                <input type="password" name="password" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition bg-white/50" placeholder="••••••••" required>
+                            </div>
+                            <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200 transform active:scale-95">
+                                Sign In
+                            </button>
+                        </form>
+                        <div class="mt-6 text-center text-sm text-gray-500">
+                            Don't have an account? <a href="{{ route('register') }}" class="text-indigo-600 font-bold hover:underline">Sign up</a>
+                        </div>
+                    </div>
+                    @else
+                    <div class="relative z-10 glass-panel p-8 rounded-3xl shadow-2xl max-w-md mx-auto lg:ml-auto border-t border-white text-center">
+                        <div class="w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4 text-indigo-600">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Welcome Back!</h3>
+                        <p class="text-gray-500 mb-6">You are already logged in as <strong>{{ auth()->user()->name }}</strong>.</p>
+                        <a href="{{ route('dashboard') }}" class="block w-full bg-indigo-600 text-white py-3 rounded-xl font-bold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200">Go to Dashboard</a>
+                    </div>
+                    @endguest
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-10 bg-indigo-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-x divide-indigo-800/50">
+                <div>
+                    <div class="text-4xl font-bold mb-1">1.2M+</div>
+                    <div class="text-indigo-200 text-sm font-medium uppercase tracking-wide">Orders Completed</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-1">0.02s</div>
+                    <div class="text-indigo-200 text-sm font-medium uppercase tracking-wide">Speed</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-1">5yrs</div>
+                    <div class="text-indigo-200 text-sm font-medium uppercase tracking-wide">Experience</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-1">24/7</div>
+                    <div class="text-indigo-200 text-sm font-medium uppercase tracking-wide">Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content / SEO Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">What is SMM Panel Nepal?</h2>
+                    <div class="prose prose-indigo text-gray-600 leading-relaxed space-y-4">
+                        <p>
+                            <strong>SMM Nepal</strong> is an online social media marketing tool (SMM Panel) that allows individuals and businesses to buy likes, followers, and views for various social media platforms such as Instagram, Facebook, TikTok, YouTube, and Twitter.
+                        </p>
+                        <p>
+                            We are known as the <span class="text-indigo-600 font-bold">Cheapest SMM Panel in Nepal</span> because we connect directly with main providers to offer wholesale rates. Whether you are an influencer looking to boost your reach or a brand trying to establish credibility, our services are designed to help you grow.
+                        </p>
+                        <p>
+                            With detailed API documentation, we are also the perfect choice for <strong>Resellers</strong> who want to start their own SMM agency. We support local payment methods mainly <strong>eSewa, Khalti, and IME Pay</strong>, making it accessible for everyone in Nepal.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Why we are the Best?</h2>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-gray-900">Unbeatable Prices</h4>
+                                <p class="text-gray-600 text-sm">We guarantee the lowest prices in the market starting from NPR 10.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-gray-900">Instant Delivery</h4>
+                                <p class="text-gray-600 text-sm">99% of our services start instantly. No more waiting.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-gray-900">High Quality Profiles</h4>
+                                <p class="text-gray-600 text-sm">We provide real-looking followers with profile pictures and posts.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Table (Compact) -->
+    <div id="services" class="py-24 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-indigo-600 font-bold tracking-wider uppercase text-sm">Pricing</span>
+                <h2 class="text-3xl font-bold text-gray-900 mt-2">Unbeatable Service Rates</h2>
+            </div>
+            
+    <!-- Services Table (Expandable) -->
+    <div id="services" class="py-24 bg-gray-50 border-t border-gray-200" x-data="{ expanded: false }">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-indigo-600 font-bold tracking-wider uppercase text-sm">Pricing</span>
+                <h2 class="text-3xl font-bold text-gray-900 mt-2">Unbeatable Service Rates</h2>
+                <p class="text-gray-500 mt-4 max-w-2xl mx-auto">Browse our wholesale prices for social media services. We offer the cheapest rates in Nepal & India.</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase">Service</th>
+                            <th class="px-6 py-4 text-right text-xs font-bold text-gray-500 uppercase">Price / 1k</th>
+                            <th class="px-6 py-4 text-center text-xs font-bold text-gray-500 uppercase">Min Order</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <!-- Loop through categories and services, but limit visual display via Alpine -->
+                        @foreach($categories as $index => $category)
+                            @foreach($category->services->take(3) as $service)
+                            <tr class="hover:bg-indigo-50/30 transition" x-show="expanded || {{ $index }} < 3">
+                                <td class="px-6 py-4">
+                                    <div class="text-sm font-medium text-gray-900">{{ $service->name }}</div>
+                                    <div class="text-xs text-indigo-500">{{ $category->name }}</div>
+                                </td>
+                                <td class="px-6 py-4 text-right whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-800">
+                                        NPR {{ number_format($service->price, 2) }}
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-center text-sm text-gray-500">
+                                    {{ $service->min_quantity }}
+                                </td>
+                            </tr>
+                            @endforeach
+                        @endforeach
+                    </tbody>
+                </table>
+                <!-- Expand/Collapse Button -->
+                <div class="p-4 bg-gray-50 text-center border-t border-gray-200">
+                    <button @click="expanded = !expanded" class="text-sm font-bold text-indigo-600 hover:text-indigo-800 focus:outline-none">
+                        <span x-text="expanded ? 'Show Less Services' : 'View All 1000+ Services'"></span>
+                        <span x-show="!expanded">&rarr;</span>
+                        <span x-show="expanded">&uarr;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features / SEO Content Block -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="p-6 rounded-2xl bg-indigo-50 border border-indigo-100">
+                    <div class="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center text-white mb-4 mx-auto md:mx-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Reseller Friendly</h3>
+                    <p class="text-gray-600 text-sm">start your own SMM business with our easy-to-use API. We provide wholesale rates so you can resell and make profit.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-purple-50 border border-purple-100">
+                    <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center text-white mb-4 mx-auto md:mx-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Local Payments</h3>
+                    <p class="text-gray-600 text-sm">We accept eSewa, Khalti, IME Pay, Prabhu Pay, UPI (India), and Paytm. No credit card required.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-green-50 border border-green-100">
+                    <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white mb-4 mx-auto md:mx-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Secure & Safe</h3>
+                    <p class="text-gray-600 text-sm">Your privacy is our priority. We never ask for your passwords. All services are safe for your accounts.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="prose prose-indigo max-w-none text-gray-600">
+                    <h2 class="text-3xl font-bold text-gray-900">Why choose us as your SMM Panel?</h2>
+                    <p>
+                        SMM Nepal is not just another panel; we are a dedicated team of marketing experts aiming to provide the <strong>cheapest and most effective social media marketing services</strong> in South Asia. Whether you are from Kathmandu, Delhi, Mumbai, or Pokhara, our services are tailored to boost your digital presence.
+                    </p>
+                    <p>
+                        We understand the algorithm of Instagram, TikTok, and YouTube. Our views and likes are designed to help your content go viral. With over 5 years of experience, we have processed millions of orders for influencers, brands, and celebrities.
+                    </p>
+                    <h3 class="text-xl font-bold text-gray-900 mt-6">Features of our Panel:</h3>
+                    <ul class="list-disc pl-5 space-y-2 mt-4">
+                        <li><strong>Instant Delivery:</strong> Our automated system processes orders within seconds.</li>
+                        <li><strong>24/7 Support:</strong> We have a dedicated support team available via Ticket and WhatsApp.</li>
+                        <li><strong>API for Developers:</strong> Easy integration for panel owners.</li>
+                        <li><strong>Drip Feed:</strong> Build growth naturally over time.</li>
+                    </ul>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute inset-0 bg-indigo-100 rounded-3xl transform rotate-3"></div>
+                    <div class="relative bg-white p-8 rounded-3xl border border-gray-100 shadow-xl">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h3>
+                        <div x-data="{ active: null }" class="space-y-4">
+                            <!-- FAQ 1 -->
+                            <div class="border-b border-gray-100 pb-4">
+                                <button @click="active = (active === 1 ? null : 1)" class="flex justify-between items-center w-full text-left font-semibold text-gray-800 hover:text-indigo-600 transition">
+                                    <span>What is an SMM Panel?</span>
+                                    <svg class="w-5 h-5 transition-transform" :class="active === 1 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <div x-show="active === 1" x-collapse class="mt-2 text-sm text-gray-600">
+                                    An SMM (Social Media Marketing) Panel is an online shop where you can buy cheap social media services like followers, likes, and views.
+                                </div>
+                            </div>
+                            <!-- FAQ 2 -->
+                            <div class="border-b border-gray-100 pb-4">
+                                <button @click="active = (active === 2 ? null : 2)" class="flex justify-between items-center w-full text-left font-semibold text-gray-800 hover:text-indigo-600 transition">
+                                    <span>Is it safe for my account?</span>
+                                    <svg class="w-5 h-5 transition-transform" :class="active === 2 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <div x-show="active === 2" x-collapse class="mt-2 text-sm text-gray-600">
+                                    Yes, absolutely. We use high-quality profiles and safe methods to deliver services. We never ask for your password.
+                                </div>
+                            </div>
+                             <!-- FAQ 3 -->
+                            <div class="border-b border-gray-100 pb-4">
+                                <button @click="active = (active === 3 ? null : 3)" class="flex justify-between items-center w-full text-left font-semibold text-gray-800 hover:text-indigo-600 transition">
+                                    <span>How can I add funds?</span>
+                                    <svg class="w-5 h-5 transition-transform" :class="active === 3 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <div x-show="active === 3" x-collapse class="mt-2 text-sm text-gray-600">
+                                    You can add funds via <strong>eSewa, Khalti, IME Pay</strong> in Nepal. For international users, we accept Binance, Payeer, and Perfect Money. Indian users can use <strong>UPI/Paytm</strong>.
+                                </div>
+                            </div>
+                            <!-- FAQ 4 -->
+                            <div class="border-b border-gray-100 pb-4">
+                                <button @click="active = (active === 4 ? null : 4)" class="flex justify-between items-center w-full text-left font-semibold text-gray-800 hover:text-indigo-600 transition">
+                                    <span>Do you offer support?</span>
+                                    <svg class="w-5 h-5 transition-transform" :class="active === 4 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <div x-show="active === 4" x-collapse class="mt-2 text-sm text-gray-600">
+                                    Yes, we have 24/7 customer support. You can open a ticket from your dashboard or contact us via WhatsApp for faster resolution.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="py-20 relative overflow-hidden bg-gray-900">
+        <div class="absolute inset-0 bg-indigo-600 opacity-20 bg-[radial-gradient(#4f46e5_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-4xl mx-auto text-center px-4 relative z-10">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Start Growing Today</h2>
+            <p class="text-gray-300 text-xl mb-10 max-w-2xl mx-auto">Join thousands of influencers and businesses using SMM Nepal to boost their social presence.</p>
+            <div class="flex justify-center gap-4">
+                <a href="{{ route('register') }}" class="bg-white text-gray-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-lg">Create Free Account</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                         <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold">S</div>
+                        <span class="text-xl font-bold text-gray-900">SMM NEPAL</span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
+                        The #1 Cheapest SMM Panel in Nepal. We provide high-quality social media marketing services for Instagram, Facebook, TikTok, YouTube, and more.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-indigo-600">Home</a></li>
+                        <li><a href="#services" class="hover:text-indigo-600">Services</a></li>
+                        <li><a href="{{ route('login') }}" class="hover:text-indigo-600">Login</a></li>
+                        <li><a href="{{ route('register') }}" class="hover:text-indigo-600">Sign Up</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Support</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-indigo-600">FAQ</a></li>
+                        <li><a href="#" class="hover:text-indigo-600">API Docs</a></li>
+                        <li><a href="#" class="hover:text-indigo-600">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-indigo-600">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-sm">&copy; {{ date('Y') }} SMM Nepal. All rights reserved.</p>
+                <div class="flex gap-4">
+                     <!-- Social Icons could go here -->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .animate-blob { animation: float 6s ease-in-out infinite; }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+    </style>
+</body>
+</html>
