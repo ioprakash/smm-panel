@@ -1,0 +1,48 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: smm-panel-app
+    container_name: smm-app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    networks:
+      - smm-network
+
+  web:
+    image: nginx:alpine
+    container_name: smm-web
+    restart: unless-stopped
+    ports:
+      - "8945:80"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    depends_on:
+      - app
+    networks:
+      - smm-network
+
+  db:
+    image: mariadb:10.11
+    container_name: smm-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - smm-network
+
+networks:
+  smm-network:
+    driver: bridge
+
+volumes:
+  db-data:

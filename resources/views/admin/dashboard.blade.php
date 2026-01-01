@@ -65,18 +65,18 @@
             <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                 <h3 class="font-bold text-gray-900 mb-4">Quick Shortcuts</h3>
                 <div class="grid grid-cols-2 gap-3">
-                    <button class="p-3 text-sm font-medium text-slate-700 bg-slate-50 hover:bg-slate-100 rounded-lg border border-slate-200 text-center transition">
+                    <a href="{{ route('admin.users.index') }}" class="block p-3 text-sm font-medium text-slate-700 bg-slate-50 hover:bg-slate-100 rounded-lg border border-slate-200 text-center transition">
                         Add User
-                    </button>
-                    <button class="p-3 text-sm font-medium text-slate-700 bg-slate-50 hover:bg-slate-100 rounded-lg border border-slate-200 text-center transition">
+                    </a>
+                    <a href="{{ route('admin.services.index') }}" class="block p-3 text-sm font-medium text-slate-700 bg-slate-50 hover:bg-slate-100 rounded-lg border border-slate-200 text-center transition">
                         New Service
-                    </button>
-                    <button class="p-3 text-sm font-medium text-slate-700 bg-slate-50 hover:bg-slate-100 rounded-lg border border-slate-200 text-center transition">
+                    </a>
+                    <a href="{{ route('admin.transactions.index') }}" class="block p-3 text-sm font-medium text-slate-700 bg-slate-50 hover:bg-slate-100 rounded-lg border border-slate-200 text-center transition">
                         View Logs
-                    </button>
-                    <button class="p-3 text-sm font-medium text-slate-700 bg-slate-50 hover:bg-slate-100 rounded-lg border border-slate-200 text-center transition">
+                    </a>
+                    <a href="{{ route('admin.settings.index') }}" class="block p-3 text-sm font-medium text-slate-700 bg-slate-50 hover:bg-slate-100 rounded-lg border border-slate-200 text-center transition">
                         Settings
-                    </button>
+                    </a>
                 </div>
             </div>
 
