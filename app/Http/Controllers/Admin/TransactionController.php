@@ -18,4 +18,31 @@ class TransactionController extends Controller
             
         return view('admin.transactions.index', compact('transactions', 'totalDeposits', 'monthDeposits'));
     }
+
+    public function approve(\App\Models\Transaction $transaction)
+    {
+        if ($transaction->status === 'completed') {
+            return back()->with('error', 'Transaction already completed');
+        }
+
+        \DB::transaction(function () use ($transaction) {
+            $transaction->update(['status' => 'completed']);
+            // Only add balance if it's a deposit
+            if ($transaction->type === 'deposit') {
+                $transaction->user->increment('balance', $transaction->amount);
+            }
+        });
+
+        return back()->with('success', 'Transaction approved and funds added.');
+    }
+
+    public function reject(\App\Models\Transaction $transaction)
+    {
+        if ($transaction->status === 'completed') {
+            return back()->with('error', 'Cannot reject a completed transaction');
+        }
+
+        $transaction->update(['status' => 'failed']);
+        return back()->with('success', 'Transaction rejected.');
+    }
 }

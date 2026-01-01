@@ -31,20 +31,26 @@
              <table class="w-full text-sm text-left">
                 <thead class="text-xs text-gray-500 uppercase bg-gray-50 border-b border-gray-100">
                     <tr>
-                        <th class="px-6 py-4 font-semibold">TxID</th>
+                        <th class="px-6 py-4 font-semibold">ID</th>
+                        <th class="px-6 py-4 font-semibold">Ref ID (User)</th>
                         <th class="px-6 py-4 font-semibold">User</th>
                         <th class="px-6 py-4 font-semibold">Gateway</th>
                         <th class="px-6 py-4 font-semibold">Type</th>
                         <th class="px-6 py-4 font-semibold text-right">Amount</th>
                         <th class="px-6 py-4 font-semibold text-center">Status</th>
                         <th class="px-6 py-4 font-semibold text-right">Date</th>
+                        <th class="px-6 py-4 font-semibold text-right">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-100">
                     @forelse($transactions as $tx)
                     <tr class="hover:bg-gray-50 transition">
                         <td class="px-6 py-4 font-mono text-xs text-gray-500">
-                            {{ substr($tx->id, 0, 8) }}...
+                            #{{ $tx->id }}
+                        </td>
+                         <td class="px-6 py-4 text-xs">
+                            <div class="font-mono text-indigo-600 font-bold">{{ $tx->transaction_id ?? '-' }}</div>
+                            <div class="text-gray-400 text-[10px] mt-0.5 truncate max-w-[150px]" title="{{ $tx->description }}">{{ $tx->description }}</div>
                         </td>
                         <td class="px-6 py-4">
                             <div class="font-medium text-gray-900">{{ $tx->user->name }}</div>
@@ -57,7 +63,7 @@
                                 @elseif($tx->payment_method == 'khalti')
                                     <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span> Khalti
                                 @else
-                                    <span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span> System
+                                    <span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span> {{ ucfirst($tx->payment_method) }}
                                 @endif
                             </span>
                         </td>
@@ -78,6 +84,24 @@
                         </td>
                         <td class="px-6 py-4 text-right text-gray-500 text-xs">
                              {{ $tx->created_at->format('M d, H:i') }}
+                        </td>
+                        <td class="px-6 py-4 text-right">
+                            @if($tx->status !== 'completed' && $tx->status !== 'failed')
+                                <div class="flex justify-end gap-2">
+                                    <form action="{{ route('admin.transactions.approve', $tx) }}" method="POST">
+                                        @csrf
+                                        <button title="Approve" onclick="return confirm('Approve this transaction? Funds will be added.')" class="p-1.5 bg-green-50 text-green-600 rounded hover:bg-green-100">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        </button>
+                                    </form>
+                                    <form action="{{ route('admin.transactions.reject', $tx) }}" method="POST">
+                                        @csrf
+                                        <button title="Reject" onclick="return confirm('Reject this transaction?')" class="p-1.5 bg-red-50 text-red-600 rounded hover:bg-red-100">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        </button>
+                                    </form>
+                                </div>
+                            @endif
                         </td>
                     </tr>
                     @empty

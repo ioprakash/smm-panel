@@ -6,44 +6,113 @@
         <!-- Payment Methods -->
         <div class="space-y-6">
             
-            <!-- Esewa (Nepal) -->
-            <div class="card hover:border-green-400 transition cursor-pointer relative overflow-hidden group">
-                <div class="flex items-center gap-4">
-                    <div class="w-16 h-16 bg-green-50 rounded-xl flex items-center justify-center text-green-600 font-bold text-xs border border-green-100">
-                        eSewa
+            <!-- Scan & Pay (Recommended) -->
+            <div x-data="{ open: false }" class="card hover:border-indigo-400 transition cursor-pointer relative overflow-hidden group">
+                <div @click="open = !open" class="flex items-center gap-4">
+                    <div class="w-16 h-16 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 font-bold text-xs border border-indigo-100">
+                        <!-- Corrected QR Icon -->
+                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h6v6H3V3zm12 0h6v6h-6V3zm0 12h6v6h-6v-6zM3 15h6v6H3v-6z"></path>
+                        </svg>
                     </div>
                     <div>
-                        <h3 class="font-bold text-lg text-gray-900">Pay with eSewa</h3>
-                        <p class="text-xs text-gray-500">Instant • No Fees</p>
+                        <h3 class="font-bold text-lg text-gray-900">Scan & Pay</h3>
+                        <p class="text-xs text-gray-500">eSewa / Khalti / Mobile Banking</p>
                     </div>
-                    <div class="ml-auto">
-                        <span class="badge bg-green-100 text-green-700">Recommended</span>
+                    <div class="ml-auto flex items-center gap-2">
+                        <span class="badge bg-indigo-100 text-indigo-700">Recommended</span>
+                         <svg class="w-5 h-5 text-gray-400 group-hover:text-indigo-600 transition" :class="{'rotate-180': open}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7 7"></path></svg>
                     </div>
                 </div>
-                
-                <form action="{{ route('wallet.deposit') }}" method="POST" class="mt-6">
-                    @csrf
-                    <input type="hidden" name="gateway" value="esewa">
-                    <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Amount (NPR)</label>
-                    <div class="flex gap-2">
-                        <input type="number" name="amount" class="input-field" placeholder="1000" min="10" required>
-                        <button type="submit" class="btn-primary bg-green-600 hover:bg-green-700">Pay</button>
-                    </div>
-                </form>
+
+                <div x-show="open" class="mt-4 pt-4 border-t border-gray-100" x-transition>
+                    <form action="{{ route('user.topup.store') }}" method="POST" class="flex gap-2">
+                        @csrf
+                        <input type="number" name="amount" placeholder="Amount (NPR)" min="10" required 
+                            class="w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 text-sm">
+                        <button type="submit" class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-indigo-700 transition whitespace-nowrap">
+                            Pay
+                        </button>
+                    </form>
+                </div>
             </div>
 
-            <!-- Khalti (Mock) -->
-            <div class="card hover:border-purple-400 transition cursor-pointer relative opacity-80">
-                <div class="flex items-center gap-4">
-                    <div class="w-16 h-16 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 font-bold text-xs border border-purple-100">
-                        Khalti
+            <!-- Esewa -->
+            @if(config('gateways.esewa.enabled'))
+                <div x-data="{ open: false }" class="card hover:border-green-400 transition cursor-pointer relative overflow-hidden">
+                    <div @click="open = !open" class="flex items-center gap-4">
+                        <div class="w-16 h-16 bg-green-50 rounded-xl flex items-center justify-center text-green-600 font-bold text-xs border border-green-100">
+                            <!-- eSewa Logo Placeholder -->
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-900">eSewa</h3>
+                            <p class="text-xs text-gray-500">Instant Deposit</p>
+                        </div>
+                        <div class="ml-auto">
+                            <svg class="w-5 h-5 text-gray-400" :class="{'rotate-180': open}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="font-bold text-lg text-gray-900">Pay with Khalti</h3>
-                        <p class="text-xs text-gray-500">Coming Soon</p>
+                    
+                    <div x-show="open" class="mt-4 pt-4 border-t border-gray-100" x-transition>
+                        <form action="{{ route('payment.esewa.process') }}" method="POST" class="flex gap-2">
+                            @csrf
+                            <input type="number" name="amount" placeholder="Amount (NPR)" min="10" required class="w-full rounded-lg border-gray-300 focus:border-green-500 focus:ring-green-500 text-sm">
+                            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-green-700 transition">Pay</button>
+                        </form>
                     </div>
                 </div>
-            </div>
+            @else
+                <div class="card relative opacity-70 grayscale-[0.5] hover:opacity-100 hover:grayscale-0 transition">
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 bg-green-50 rounded-xl flex items-center justify-center text-green-600 font-bold text-xs border border-green-100">
+                            eSewa
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-900">Pay with eSewa</h3>
+                            <p class="text-xs text-gray-500">Coming Soon</p>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            <!-- Khalti -->
+            @if(config('gateways.khalti.enabled'))
+                <div x-data="{ open: false }" class="card hover:border-purple-400 transition cursor-pointer relative overflow-hidden">
+                    <div @click="open = !open" class="flex items-center gap-4">
+                        <div class="w-16 h-16 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 font-bold text-xs border border-purple-100">
+                            <!-- Khalti Logo Placeholder -->
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-900">Khalti</h3>
+                            <p class="text-xs text-gray-500">Instant Deposit</p>
+                        </div>
+                         <div class="ml-auto">
+                            <svg class="w-5 h-5 text-gray-400" :class="{'rotate-180': open}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                     <div x-show="open" class="mt-4 pt-4 border-t border-gray-100" x-transition>
+                        <form action="{{ route('payment.khalti.process') }}" method="POST" class="flex gap-2">
+                            @csrf
+                            <input type="number" name="amount" placeholder="Amount (NPR)" min="10" required class="w-full rounded-lg border-gray-300 focus:border-purple-500 focus:ring-purple-500 text-sm">
+                            <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-purple-700 transition">Pay</button>
+                        </form>
+                    </div>
+                </div>
+            @else
+                <div class="card relative opacity-70 grayscale-[0.5] hover:opacity-100 hover:grayscale-0 transition">
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 font-bold text-xs border border-purple-100">
+                            Khalti
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-900">Pay with Khalti</h3>
+                            <p class="text-xs text-gray-500">Coming Soon</p>
+                        </div>
+                    </div>
+                </div>
+            @endif
 
              <!-- Bank Transfer -->
              <div class="card hover:border-blue-400 transition cursor-pointer">

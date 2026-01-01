@@ -47,6 +47,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/payment/success/{gateway}', [WalletController::class, 'success'])->name('payment.success');
     Route::get('/payment/failure/{gateway}', [WalletController::class, 'failure'])->name('payment.failure');
 
+    // Payment Gateways (eSewa & Khalti)
+    Route::post('/payment/esewa/process', [\App\Http\Controllers\PaymentController::class, 'esewaProcess'])->name('payment.esewa.process');
+    Route::get('/payment/esewa/success', [\App\Http\Controllers\PaymentController::class, 'esewaSuccess'])->name('payment.esewa.success');
+    Route::get('/payment/esewa/failure', [\App\Http\Controllers\PaymentController::class, 'esewaFailure'])->name('payment.esewa.failure');
+
+    Route::post('/payment/khalti/process', [\App\Http\Controllers\PaymentController::class, 'khaltiProcess'])->name('payment.khalti.process');
+    Route::get('/payment/khalti/callback', [\App\Http\Controllers\PaymentController::class, 'khaltiCallback'])->name('payment.khalti.callback');
+
+    // Manual Topup
+    Route::get('/user/topup', [\App\Http\Controllers\TopupController::class, 'create'])->name('user.topup.create');
+    Route::post('/user/topup', [\App\Http\Controllers\TopupController::class, 'store'])->name('user.topup.store');
+    Route::get('/user/invoice/{transaction}', [\App\Http\Controllers\TopupController::class, 'show'])->name('user.topup.show');
+    Route::put('/user/invoice/{transaction}', [\App\Http\Controllers\TopupController::class, 'update'])->name('user.topup.update');
+
     // Tickets
     Route::resource('tickets', TicketController::class)->only(['index', 'create', 'store', 'show']);
     Route::post('/tickets/{ticket}/reply', [TicketController::class, 'reply'])->name('tickets.reply');
@@ -69,6 +83,8 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('ad
     Route::get('/orders', [\App\Http\Controllers\Admin\OrderController::class, 'index'])->name('orders.index');
     Route::resource('providers', \App\Http\Controllers\Admin\ProviderController::class);
     Route::get('/transactions', [\App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('transactions.index');
+    Route::post('/transactions/{transaction}/approve', [\App\Http\Controllers\Admin\TransactionController::class, 'approve'])->name('transactions.approve');
+    Route::post('/transactions/{transaction}/reject', [\App\Http\Controllers\Admin\TransactionController::class, 'reject'])->name('transactions.reject');
     
     // Tickets
     Route::controller(\App\Http\Controllers\Admin\TicketController::class)->prefix('tickets')->name('tickets.')->group(function () {
